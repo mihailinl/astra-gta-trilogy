@@ -1,0 +1,3 @@
+[submodule "extern/astra-reshade"]
+	path = extern/astra-reshade
+	url = https://github.com/mihailinl/astra-reshade.git
