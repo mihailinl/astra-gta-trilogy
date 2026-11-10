@@ -31,6 +31,13 @@ authors = ["mihailinl"]
 license = "MIT AND BSD-3-Clause AND CC0-1.0" # ours and UE4SS: MIT; ReShade: BSD-3-Clause; ReShade.fxh: CC0-1.0
 repo = "https://github.com/mihailinl/astra-gta-trilogy"
 
+# What this integration asks of Astra: the [[config_writes]] row below hands it the avatar bridge's
+# ${bridge_token}, which only the "presentation" capability allows (the Workshop catalogue refuses a
+# manifest that passes the token on without declaring it). Nested under [integration], so a launcher
+# that does not know the table reads past it.
+[integration.capabilities]
+companion = ["presentation"]
+
 [target]
 # engine = "unreal" intentionally OMITTED: astra-game-launcher plan_install (src/plan.rs) checks it with
 # detect::engine_of_exe, whose only Unreal rule (src/detect.rs::unreal) requires the exe name to end
